@@ -1,0 +1,160 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+    body {
+      background-color: #FFF5F7; /* 修改：背景改為淺粉 */
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #5D4037; /* 修改：預設文字改為深暖棕色，比黑色更柔和 */
+    }
+
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background-color: #ffffff;
+      box-shadow: 0 0 30px rgba(251, 111, 146, 0.1); /* 修改：陰影帶點粉色 */
+      position: relative;
+      padding-bottom: 90px;
+    }
+
+    /* Header 保持白色，讓圖片突顯 */
+    .header-bg {
+      background-color: #ffffff;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(251, 111, 146, 0.15); /* 修改：粉色系陰影 */
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+      z-index: 10;
+      padding-bottom: 0px;
+    }
+
+    .header-image-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background-color: transparent;
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+    }
+
+    .header-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .snow-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* 雪花保持白色，但在粉色主題下會很夢幻 */
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23fff" opacity="0.8"/><circle cx="20" cy="80" r="0.5" fill="%23fff" opacity="0.6"/><circle cx="70" cy="30" r="1.5" fill="%23fff" opacity="0.9"/></svg>');
+      background-size: 100px 100px;
+      opacity: 0.7;
+      animation: snowfall 10s linear infinite;
+      z-index: 5;
+    }
+
+    @keyframes snowfall {
+      to { background-position: 100px 100px; }
+    }
+
+    .side-tab-bar {
+      position: absolute;
+      bottom: 45px;
+      right: 16px;
+      z-index: 30;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+    }
+
+    .tab-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    /* 修改：活躍按鈕改成莓果粉色 */
+    .tab-button.active {
+      background-color: #FB6F92; 
+      color: #ffffff;
+      box-shadow: 0 6px 15px rgba(251, 111, 146, 0.5); /* 粉色光暈 */
+      transform: scale(1.05);
+    }
+
+    /* 修改：非活躍按鈕改成淺櫻花色 */
+    .tab-button:not(.active) {
+      background-color: #ffffff;
+      color: #FFC1E3; 
+    }
+
+    .app-main {
+      padding-top: 25px !important;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* 修改：卡片陰影改成柔和的粉紫色調 */
+    .card-shadow {
+      box-shadow: 0 4px 20px rgba(251, 111, 146, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .animate-fade-in { animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 修改：浮動按鈕陰影 (奶油黃) */
+    .fab-shadow {
+      box-shadow: 0 4px 15px rgba(255, 229, 127, 0.8);
+    }
+
+    .note-content {
+      max-height: 2.5rem;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .note-content.expanded { max-height: 500px; }
+
+    .expense-category-tag {
+      min-width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 修改：花費 Banner 改成夢幻的粉紫漸層 */
+    .expenses-banner {
+      background: linear-gradient(135deg, #FB6F92 0%, #FF8FA3 100%);
+    }
+
+    .date-selector-sticky {
+      background-color: #ffffff;
+      border-bottom: 1px solid #FFF0F5; /* 修改：邊框改淺粉 */
+      z-index: 20;
+      top: 0;
+    }
+  </style>
